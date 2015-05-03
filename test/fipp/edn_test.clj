@@ -116,6 +116,16 @@
            "#\"x\\?y\"")))
   )
 
+; (binding [*print-level* 3] (prn (last (take 10 (iterate vector 0)))))
+; => [[[#]]]
+
+; (binding [*print-length* 3] (prn (range)))
+; => (0 1 2 ...)
+
+; (def a (atom []))
+; (swap! a conj a)
+; =>  ... #<circular>
+
 (comment
 
   (pprint (tagged-literal 'foo (with-meta [] {:blah true}))
